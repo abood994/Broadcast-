@@ -105,7 +105,7 @@ client.on("message", async message => {
                         
                         let msgEmbed = new Discord.MessageEmbed()
 
-                            .setTitle("Advanced Broadcast")
+                            .setTitle(" Broadcast")
                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                             .setColor(message.member.roles.highest.hexColor)
                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
@@ -177,7 +177,7 @@ client.on("message", async message => {
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size}**`)
+                                                .setDescription(`:white_check_mark: **| يتم الارسال الى جميع الاعضاء: ${message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size}**`)
                                                
 
                                             mSure.edit(sendEmbed);
@@ -215,7 +215,7 @@ client.on("message", async message => {
 
                                         } else if (reason === "Done2") {
 
-                                            //Cancel
+                                            
 
                                             let cancelEmbed = new Discord.MessageEmbed()
                                                 .setTitle(" Broadcast")
@@ -260,7 +260,7 @@ client.on("message", async message => {
 
                     } else if (reason === "Done2") {
 
-                        //All
+                        
 
                         let msgEmbed = new Discord.MessageEmbed()
 
@@ -329,12 +329,12 @@ client.on("message", async message => {
                                             //Send
 
                                             let sendEmbed = new Discord.MessageEmbed()
-                                                .setTitle("Advanced Broadcast")
+                                                .setTitle(" Broadcast")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.members.cache.filter(m => !m.user.bot).size}**`)
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
+                                                .setDescription(`:white_check_mark: **| يتم الارسال الى جميع الاعضاء: ${message.guild.members.cache.filter(m => !m.user.bot).size}**`)
+                                                
 
                                             mSure.edit(sendEmbed);
 
