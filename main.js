@@ -14,8 +14,7 @@ let timeS = config.Time
 client.on("ready", () => {
 
     console.log(`Logged in as: ${client.user.tag}`);
-    console.log(`-> Servers / Members: ${client.guilds.cache.size} server / ${client.users.cache.size} member`);
-    console.log(`Developer: Amir.#0001`);
+
 
 });
 
@@ -38,10 +37,6 @@ client.on("message", async message => {
                 .setColor(message.member.roles.highest.hexColor)
                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
                 .addField("Loading . . .", "Loading . . .")
-                .addField("Loading . . .", "Loading . . .")
-                .addField("Loading . . .", "Loading . . .")
-                .addField("Loading . . .", "**Loading . . .**")
-                .setFooter("Advanced Broadcast by Amir.#0001")
 
             let embed = new Discord.MessageEmbed()
 
@@ -49,11 +44,11 @@ client.on("message", async message => {
                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                 .setColor(message.member.roles.highest.hexColor)
                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                .addField("🟢", "Send to online members **only** `[ " + message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size + " ] member`")
-                .addField("🟠", "Send to **role** members")
-                .addField("🔵", "Send to **all** members `[ " + message.guild.memberCount + " ] member`")
-                .addField("❌", "**Cancel**")
-                .setFooter("Advanced Broadcast by Amir.#0001")
+                .addField("🟢"," برودكاست اونلاين  `[ " + message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size + " ] member`")
+                .addField("🟠","برودكاست رول ")
+                .addField("🔵","برودكاست الكل  `[ " + message.guild.memberCount + " ] member`")
+                .addField("❌","**الغاء**")
+                
 
             message.channel.send(loading).then(async (m) => {
 
@@ -107,16 +102,14 @@ client.on("message", async message => {
 
                     if (reason === "Done1") {
 
-                        //Online only
-
+                        
                         let msgEmbed = new Discord.MessageEmbed()
 
                             .setTitle("Advanced Broadcast")
                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                             .setColor(message.member.roles.highest.hexColor)
                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                            .setDescription(":white_check_mark:** | Write your message.**")
-                            .setFooter("Advanced Broadcast by Amir.#0001")
+                            .setDescription("** رسالتك.**")
 
                         m.edit(msgEmbed).then(() => {
 
@@ -134,7 +127,6 @@ client.on("message", async message => {
                                     .setColor(message.member.roles.highest.hexColor)
                                     .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                     .setDescription(msg.content)
-                                    .setFooter("Advanced Broadcast by Amir.#0001")
 
                                 msg.delete({ timeout: 500 });
                                 m.delete({ timeout: 500 });
@@ -177,16 +169,16 @@ client.on("message", async message => {
 
                                             let msg = reason.replace("Done1", "");
 
-                                            //Send
+                                            
 
 
                                             let sendEmbed = new Discord.MessageEmbed()
-                                                .setTitle("Advanced Broadcast")
+                                                .setTitle("Broadcast")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                                 .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size}**`)
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
+                                               
 
                                             mSure.edit(sendEmbed);
 
@@ -197,7 +189,7 @@ client.on("message", async message => {
 
                                                 try {
 
-                                                    await members[i].send(msg) // Send Message;
+                                                    await members[i].send(msg) 
 
                                                     await timeIIa(timeS);
 
@@ -211,13 +203,12 @@ client.on("message", async message => {
                                             setInterval(() => {
 
                                                 let edddd = new Discord.MessageEmbed()
-                                                    .setTitle("Advanced Broadcast")
+                                                    .setTitle(" Broadcast")
                                                     .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                     .setColor(message.member.roles.highest.hexColor)
                                                     .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                    .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size}**`)
-                                                    .setFooter("Advanced Broadcast by Amir.#0001")
-
+                                                    .setDescription(`**يتم الارسال الى جميع الاعضاء: ${message.guild.members.cache.filter(m => m.presence.status === "dnd" || m.presence.status === "idle" || m.presence.status === "online" && !m.user.bot).size}**`)
+                                                    
                                                 mSure.edit(edddd);
 
                                             }, 1 * 10000);
@@ -227,26 +218,24 @@ client.on("message", async message => {
                                             //Cancel
 
                                             let cancelEmbed = new Discord.MessageEmbed()
-                                                .setTitle("Advanced Broadcast")
+                                                .setTitle(" Broadcast")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                .setDescription(":x:** | Canceled.**")
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
-
+                                                .setDescription(":x:**  الغاء.**")
+                                                
                                             mSure.edit(cancelEmbed);
                                             mSure.reactions.removeAll();
 
                                         } else if (!reason.startsWith("Done1") && !reason.startsWith("Done2")) {
 
                                             let timeoutEmbed = new Discord.MessageEmbed()
-                                                .setTitle("Advanced Broadcast")
+                                                .setTitle(" Broadcast")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                                 .setDescription(":x:** | Reaction timeout.**")
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
-
+                                                
 
                                             mSure.reactions.removeAll();
                                             mSure.edit(timeoutEmbed);
@@ -275,13 +264,12 @@ client.on("message", async message => {
 
                         let msgEmbed = new Discord.MessageEmbed()
 
-                            .setTitle("Advanced Broadcast")
+                            .setTitle(" Broadcast")
                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                             .setColor(message.member.roles.highest.hexColor)
                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                            .setDescription(":white_check_mark:** | Write your message.**")
-                            .setFooter("Advanced Broadcast by Amir.#0001")
-
+                            .setDescription(":white_check_mark:** | رسالتك.**")
+                            
                         m.edit(msgEmbed).then(() => {
 
                             let MsgFilter = m => m.author.id === message.author.id;
@@ -291,12 +279,12 @@ client.on("message", async message => {
 
                                 let SureEmbed = new Discord.MessageEmbed()
 
-                                    .setTitle("Are you sure you want to send this message ?")
+                                    .setTitle("هل انت متأكد لارسال هذي الرسالة؟؟")
                                     .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                     .setColor(message.member.roles.highest.hexColor)
                                     .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                     .setDescription(msg.content)
-                                    .setFooter("Advanced Broadcast by Amir.#0001")
+                                    
 
                                 msg.delete({ timeout: 500 });
                                 m.delete({ timeout: 500 });
@@ -356,7 +344,7 @@ client.on("message", async message => {
 
                                                 try {
 
-                                                    await members[i].send(msg) // Send Message;
+                                                    await members[i].send(msg) 
 
                                                     await timeIIa(timeS);
 
@@ -372,13 +360,12 @@ client.on("message", async message => {
                                             setInterval(() => {
 
                                                 let edddd = new Discord.MessageEmbed()
-                                                    .setTitle("Advanced Broadcast")
+                                                    .setTitle(" Broadcast")
                                                     .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                     .setColor(message.member.roles.highest.hexColor)
                                                     .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                    .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.memberCount}**`)
-                                                    .setFooter("Advanced Broadcast by Amir.#0001")
-
+                                                    .setDescription(`:white_check_mark: **| يتم الارسال الى جميع الاعضاء ${message.guild.memberCount}**`)
+                                                    
                                                 mSure.edit(edddd);
 
                                             }, 1 * 10000);
@@ -388,12 +375,12 @@ client.on("message", async message => {
                                             //Cancel
 
                                             let cancelEmbed = new Discord.MessageEmbed()
-                                                .setTitle("Advanced Broadcast")
+                                                .setTitle(" Broadcast")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                .setDescription(":x:** | Canceled.**")
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
+                                                .setDescription(":x:** | الغاء.**")
+                                                
 
                                             mSure.reactions.removeAll();
                                             mSure.edit(cancelEmbed);
@@ -402,12 +389,12 @@ client.on("message", async message => {
                                         } else if (!reason.startsWith("Done1") && !reason.startsWith("Done2")) {
 
                                             let timeoutEmbed = new Discord.MessageEmbed()
-                                                .setTitle("Advanced Broadcast")
+                                                .setTitle(" Broadcast")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                                 .setDescription(":x:** | Reaction timeout.**")
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
+                                                
 
                                             mSure.reactions.removeAll();
                                             mSure.edit(timeoutEmbed);
@@ -431,9 +418,9 @@ client.on("message", async message => {
 
                     } else if (reason === "Done3") {
 
-                        //Role
+                        
 
-                        message.channel.send("🟠 **| Mention the role: **").then((rmm) => {
+                        message.channel.send("🟠 **| مَنشن الرول **").then((rmm) => {
 
                             let MsgFilter = m => m.author.id === message.author.id;
                             let MsgCollector = rmm.channel.createMessageCollector(MsgFilter, { time: 60000, max: 1 });
@@ -448,12 +435,12 @@ client.on("message", async message => {
                                     msg.delete({ timeout: 150 })
                                     let msgEmbed = new Discord.MessageEmbed()
 
-                                        .setTitle("Advanced Broadcast")
+                                        .setTitle(" Broadcast")
                                         .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                         .setColor(message.member.roles.highest.hexColor)
                                         .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                        .setDescription(":white_check_mark:** | Write your message.**")
-                                        .setFooter("Advanced Broadcast by Amir.#0001")
+                                        .setDescription(":white_check_mark:** | رسالتك.**")
+                                        
 
                                     m.edit(msgEmbed).then(() => {
 
@@ -464,12 +451,12 @@ client.on("message", async message => {
 
                                             let SureEmbed = new Discord.MessageEmbed()
 
-                                                .setTitle("Are you sure you want to send this message ?")
+                                                .setTitle("هل انت متأكد لارسال هذي الرسالة؟؟")
                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                 .setColor(message.member.roles.highest.hexColor)
                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                                 .setDescription(msg.content)
-                                                .setFooter("Advanced Broadcast by Amir.#0001")
+                                                
 
                                             msg.delete({ timeout: 500 });
                                             m.delete({ timeout: 500 });
@@ -510,17 +497,16 @@ client.on("message", async message => {
 
                                                         let msg = reason.replace("Done1", "");
 
-                                                        //Send
+                                                        
 
 
                                                         let sendEmbed = new Discord.MessageEmbed()
-                                                            .setTitle("Advanced Broadcast")
+                                                            .setTitle(" Broadcast")
                                                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                             .setColor(message.member.roles.highest.hexColor)
                                                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                            .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.members.cache.filter(m => m.roles.cache.find(r => r.id === role.id) && !m.user.bot).size}**`)
-                                                            .setFooter("Advanced Broadcast by Amir.#0001")
-
+                                                            .setDescription(`:white_check_mark: **| يتم الارسال الى جميع الاعضاء: ${message.guild.members.cache.filter(m => m.roles.cache.find(r => r.id === role.id) && !m.user.bot).size}**`)
+                                                            
                                                         mSure.edit(sendEmbed);
 
                                                         let members = message.guild.members.cache.filter(m => m.roles.cache.find(r => r.id === role.id) && !m.user.bot).array();
@@ -530,7 +516,7 @@ client.on("message", async message => {
 
                                                             try {
 
-                                                                await members[i].send(msg) // Send Message;
+                                                                await members[i].send(msg) 
 
                                                                 await timeIIa(timeS);
 
@@ -544,12 +530,12 @@ client.on("message", async message => {
                                                         setInterval(() => {
 
                                                             let edddd = new Discord.MessageEmbed()
-                                                                .setTitle("Advanced Broadcast")
+                                                                .setTitle(" Broadcast")
                                                                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                                 .setColor(message.member.roles.highest.hexColor)
                                                                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                                .setDescription(`:white_check_mark: **| Sending... | All Members: ${message.guild.members.cache.filter(m => m.roles.cache.find(r => r.id === role.id) && !m.user.bot).size}**`)
-                                                                .setFooter("Advanced Broadcast by Amir.#0001")
+                                                                .setDescription(`:white_check_mark: **| يتم الارسال الى جميع الاعضاء: ${message.guild.members.cache.filter(m => m.roles.cache.find(r => r.id === role.id) && !m.user.bot).size}**`)
+                                                                
 
                                                             mSure.edit(edddd);
 
@@ -557,15 +543,15 @@ client.on("message", async message => {
 
                                                     } else if (reason === "Done2") {
 
-                                                        //Cancel
+                                                        
 
                                                         let cancelEmbed = new Discord.MessageEmbed()
-                                                            .setTitle("Advanced Broadcast")
+                                                            .setTitle(" Broadcast")
                                                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                             .setColor(message.member.roles.highest.hexColor)
                                                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
-                                                            .setDescription(":x:** | Canceled.**")
-                                                            .setFooter("Advanced Broadcast by Amir.#0001")
+                                                            .setDescription(":x:** | الغاء.**")
+                                                            
 
                                                         mSure.reactions.removeAll();
                                                         mSure.edit(cancelEmbed);
@@ -573,12 +559,12 @@ client.on("message", async message => {
                                                     } else if (!reason.startsWith("Done1") && !reason.startsWith("Done2")) {
 
                                                         let timeoutEmbed = new Discord.MessageEmbed()
-                                                            .setTitle("Advanced Broadcast")
+                                                            .setTitle(" Broadcast")
                                                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                                                             .setColor(message.member.roles.highest.hexColor)
                                                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
                                                             .setDescription(":x:** | Reaction timeout.**")
-                                                            .setFooter("Advanced Broadcast by Amir.#0001")
+                                                            
 
                                                         mSure.reactions.removeAll();
                                                         mSure.edit(timeoutEmbed);
@@ -603,7 +589,7 @@ client.on("message", async message => {
                                 } else {
 
                                     MsgCollector.stop();
-                                    rmm.edit(":x: ** | Bad answer.**")
+                                    rmm.edit(":x: ** | اجابة سيئة.**")
                                 }
 
                             });
@@ -615,12 +601,12 @@ client.on("message", async message => {
 
                         let timeoutEmbed = new Discord.MessageEmbed()
 
-                            .setTitle("Advanced Broadcast")
+                            .setTitle(" Broadcast")
                             .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                             .setColor(message.member.roles.highest.hexColor)
                             .setThumbnail(message.guild.iconURL({ dynamic: true }))
                             .setDescription(":x:** | Reaction timeout**")
-                            .setFooter("Advanced Broadcast by Amir.#0001")
+                            
 
                         m.reactions.removeAll();
                         m.edit(timeoutEmbed);
