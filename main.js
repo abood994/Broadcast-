@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 let config = require('./config.json')
 
-let Token = config.BOT_TOKEN;
+let Token = config.TOKEN;
 
 let prefix = config.Prefix;
 
