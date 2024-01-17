@@ -32,7 +32,7 @@ client.on("message", async message => {
 
             let loading = new Discord.MessageEmbed()
 
-                .setTitle("Advanced Broadcast")
+                .setTitle(" Broadcast")
                 .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
                 .setColor(message.member.roles.highest.hexColor)
                 .setThumbnail(message.guild.iconURL({ dynamic: true }))
