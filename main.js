@@ -18,7 +18,7 @@ client.on("ready", () => {
 
 });
 
-// Timeout Function
+
 
 const timeIIa = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
